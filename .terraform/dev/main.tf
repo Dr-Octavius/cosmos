@@ -59,13 +59,13 @@ resource "digitalocean_kubernetes_cluster" "sefire_sgp1_dev" {
   #------------------------------------------
   node_pool {
     name       = "sefire-core-np"
-    size       = "s-4vcpu-16gb"
+    size       = "s-4vcpu-8gb"
     auto_scale = true
     min_nodes  = 1
     #-------------------------------------------
     # To increase pending Droplet Limit Request
     #-------------------------------------------
-    max_nodes  = 10
+    max_nodes  = 5
     labels = {
       nodepool = "sefire-core-np"
     }
