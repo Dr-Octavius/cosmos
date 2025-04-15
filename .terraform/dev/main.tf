@@ -146,9 +146,9 @@ resource "digitalocean_firewall" "sefire_sgp1_dev_firewall" {
   # - Cluster Owner(s)
   # - Compliance (If uniform)
   #--------------------------------------
-  tags    = [
-    "sefire-core-np",
-  ]
+  # tags    = [
+  #   "sefire-core-np",
+  # ]
 
   depends_on = [
     digitalocean_kubernetes_cluster.sefire_sgp1_dev
