@@ -59,7 +59,7 @@ resource "digitalocean_kubernetes_cluster" "sefire_sgp1_dev" {
   #------------------------------------------
   node_pool {
     name       = "sefire-core-np"
-    size       = "s-4vcpu-8gb"
+    size       = "g-4vcpu-16gb"
     auto_scale = true
     min_nodes  = 1
     #-------------------------------------------
