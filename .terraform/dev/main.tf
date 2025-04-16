@@ -58,7 +58,7 @@ resource "digitalocean_kubernetes_cluster" "sefire_sgp1_dev" {
   # SCRIBE + Fluentd Node Pool Configuration
   #------------------------------------------
   node_pool {
-    name       = "sefire-core-np"
+    name       = "core-np"
     size       = "g-4vcpu-16gb"
     auto_scale = true
     min_nodes  = 1
