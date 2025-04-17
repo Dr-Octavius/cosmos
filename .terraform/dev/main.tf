@@ -41,45 +41,64 @@ resource "digitalocean_kubernetes_cluster" "sefire_sgp1_dev" {
   name    = "sefire-sgp1-dev"
   region  = "sgp1"
   version = "1.32.2-do.0"
-  #--------------------------------------
-  # To Be Automated via CICD pipeline
-  # Include info not in name & dashboard
-  # - K8s version
-  # - Node Pool Name(s)
-  # - Node Pool Owner(s)
-  # - Cluster Owner(s)
-  # - Compliance (If uniform)
-  #--------------------------------------
-  tags    = [
-    "pdpa",
-  ]
 
-  #------------------------------------------
-  # SCRIBE + Fluentd Node Pool Configuration
-  #------------------------------------------
+  #-------------------
+  # General Node Pool
+  #-------------------
   node_pool {
     name       = "core-np"
     size       = "g-4vcpu-16gb"
     auto_scale = true
     min_nodes  = 1
-    #-------------------------------------------
-    # To increase pending Droplet Limit Request
-    #-------------------------------------------
     max_nodes  = 5
     labels = {
       nodepool = "sefire-core-np"
     }
-    #--------------------------------------
-    # To Be Automated via CICD pipeline
-    # Include info not in name & dashboard
-    # - Image(s) Deployed
-    # - Image Owner
-    # - Node Pool Owner
-    # - Compliance (If not uniform)
-    #--------------------------------------
-    tags    = [
-      "general-purpose",
-    ]
+  }
+}
+
+#--------------------------------
+# Dedicated Prometheus Node Pool
+#--------------------------------
+resource "digitalocean_kubernetes_node_pool" "prometheus_np" {
+  cluster_id = digitalocean_kubernetes_cluster.sefire_sgp1_dev.id
+  name       = "prometheus-np"
+  size       = "s-4vcpu-8gb"
+  auto_scale = true
+  min_nodes  = 1
+  max_nodes  = 3
+  labels = {
+    nodepool = "prometheus-np"
+  }
+}
+
+#----------------------------
+# Dedicated Jaeger Node Pool
+#----------------------------
+resource "digitalocean_kubernetes_node_pool" "jaeger_np" {
+  cluster_id = digitalocean_kubernetes_cluster.sefire_sgp1_dev.id
+  name       = "jaeger-np"
+  size       = "s-4vcpu-8gb"
+  auto_scale = true
+  min_nodes  = 1
+  max_nodes  = 3
+  labels = {
+    nodepool = "jaegar-np"
+  }
+}
+
+#----------------------------------
+# Dedicated Elasticsearch Node Pool
+#----------------------------------
+resource "digitalocean_kubernetes_node_pool" "elasticsearch_np" {
+  cluster_id = digitalocean_kubernetes_cluster.sefire_sgp1_dev.id
+  name       = "elasticsearch-np"
+  size       = "g-4vcpu-16gb"
+  auto_scale = true
+  min_nodes  = 1
+  max_nodes  = 3
+  labels = {
+    nodepool = "elasticsearch-np"
   }
 }
 
@@ -135,20 +154,6 @@ resource "digitalocean_firewall" "sefire_sgp1_dev_firewall" {
     port_range            = "1-65535"
     destination_addresses = ["0.0.0.0/0"]
   }
-
-  # Associate with the Kubernetes worker nodes
-  #--------------------------------------
-  # To Be Automated via CICD pipeline
-  # Include info not in name & dashboard
-  # - K8s version
-  # - Node Pool Name(s)
-  # - Node Pool Owner(s)
-  # - Cluster Owner(s)
-  # - Compliance (If uniform)
-  #--------------------------------------
-  # tags    = [
-  #   "sefire-core-np",
-  # ]
 
   depends_on = [
     digitalocean_kubernetes_cluster.sefire_sgp1_dev
