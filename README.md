@@ -33,7 +33,9 @@ can also be contributed to live in this parent folder.
 ```bash
 ├── .idea
 ├── .terraform
-│   └── main.tf
+│   ├── local
+│   ├── staging
+│   └── prod
 └── lib
     ├── civo
     │   └── main.tf
