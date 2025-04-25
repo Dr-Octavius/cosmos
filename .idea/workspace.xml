@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="287ace61-00e1-4e2b-b72e-27aacdbf3036" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/firewall/providers.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/nodepool/providers.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/staging/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/staging/main.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/staging/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/staging/outputs.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +160,7 @@
       <workItem from="1745576117769" duration="108000" />
       <workItem from="1745576251776" duration="479000" />
       <workItem from="1745576736385" duration="1938000" />
-      <workItem from="1745585298100" duration="405000" />
+      <workItem from="1745585298100" duration="1301000" />
     </task>
     <servers />
   </component>
