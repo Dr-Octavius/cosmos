@@ -1,1 +1,0 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"elasticsearch_np","Source":"./modules/nodepool","Dir":"modules/nodepool"},{"Key":"jaeger_np","Source":"./modules/nodepool","Dir":"modules/nodepool"},{"Key":"prometheus_np","Source":"./modules/nodepool","Dir":"modules/nodepool"},{"Key":"sefire_sgp1_dev_firewall","Source":"./modules/firewall","Dir":"modules/firewall"}]}
