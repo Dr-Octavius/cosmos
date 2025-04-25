@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="287ace61-00e1-4e2b-b72e-27aacdbf3036" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/firewall/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/firewall/variables.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/nodepool/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/nodepool/variables.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/staging/outputs.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/staging/providers.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/staging/variables.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cosmos.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/terraform.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.terraform/dev/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/staging/main.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.terraform/prod/main.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.terraform/staging/main.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.terraform/test/main.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +60,8 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.externalDependencies",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.scopes",
     "show.migrate.to.gradle.popup": "false",
     "vue.rearranger.settings.migration": "true"
   }
@@ -149,7 +133,7 @@
       <workItem from="1745551909697" duration="7602000" />
       <workItem from="1745576031849" duration="48000" />
       <workItem from="1745576117769" duration="108000" />
-      <workItem from="1745576251776" duration="39000" />
+      <workItem from="1745576251776" duration="479000" />
     </task>
     <servers />
   </component>
