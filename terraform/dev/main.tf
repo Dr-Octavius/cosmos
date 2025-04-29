@@ -14,25 +14,24 @@ locals {
   medium_size  = "s-4vcpu-8gb"
 }
 
-#------------------------
+#--------------------------------------------------------
 # Planned Resources
 # - resource blocks only
-#------------------------
-# Sefire Staging Environment using DOKS
-resource "digitalocean_kubernetes_cluster" "cluster" {
-  name    = "sefire-sgp1-dev"
-  region  = "sgp1"
-  version = "1.32.2-do.0"
+# - place here if speed is prioritised; modularise later
+#--------------------------------------------------------
 
-  # Default Node Pool
-  node_pool {
-    name       = "testing"
-    size       = local.general_size # change this depending on dev cluster spinning up resource requirements
-    auto_scale = true
-    min_nodes  = 1
-    max_nodes  = 5
-    labels = {
-      nodepool = "testing"
-    }
-  }
+#----------------------
+# Referenced Configs
+# - module blocks only
+#----------------------
+# Module Config for Sefire Development Environment using DOKS
+module "sgp1_cluster" {
+  source     = "./modules/k8s-cluster"
+  name       = "sefire-sgp1-dev"
+  region_code = "sgp1"
+  resource_version = "1.32.2-do.0"
+  size       = local.general_size
+  auto_scale = true
+  min_nodes  = 1
+  max_nodes  = 5
 }
