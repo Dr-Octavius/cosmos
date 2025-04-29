@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="287ace61-00e1-4e2b-b72e-27aacdbf3036" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/terraform/dev/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/dev/modules/firewall/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/dev/modules/firewall/providers.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/dev/modules/firewall/variables.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/dev/modules/k8s-cluster/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/dev/modules/k8s-cluster/providers.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/dev/modules/k8s-cluster/variables.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/dev/modules/k8s-nodepool/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/dev/modules/k8s-nodepool/providers.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/dev/modules/k8s-nodepool/variables.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/dev/outputs.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/dev/providers.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/dev/variables.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +162,7 @@
       <workItem from="1745585298100" duration="1301000" />
       <workItem from="1745656212838" duration="964000" />
       <workItem from="1745718534411" duration="7000" />
-      <workItem from="1745925220913" duration="827000" />
+      <workItem from="1745925220913" duration="991000" />
     </task>
     <servers />
   </component>
