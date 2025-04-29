@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="287ace61-00e1-4e2b-b72e-27aacdbf3036" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/cluster/outputs.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/cluster/main.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/cluster/providers.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/cluster/variables.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/nodepool/main.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/nodepool/providers.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/nodepool/variables.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/terraform/dev/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/main.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/k8s-cluster/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/cluster/main.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/k8s-cluster/providers.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/cluster/providers.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/k8s-cluster/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/cluster/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/k8s-nodepool/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/nodepool/main.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/k8s-nodepool/providers.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/nodepool/providers.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/k8s-nodepool/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/nodepool/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/dev/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/outputs.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,46 +51,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;Terraform.Init nodepool.executor&quot;: &quot;Run&quot;,
-    &quot;Terraform.Validate staging.executor&quot;: &quot;Run&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/LooWeeSing/Desktop/GIT/cosmos/terraform/dev/modules/k8s-cluster&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.scopes&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "Terraform.Init nodepool.executor": "Run",
+    "Terraform.Validate staging.executor": "Run",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/LooWeeSing/Desktop/GIT/cosmos/terraform/dev/modules/kubernetes/cluster",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.scopes",
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\dev\modules\kubernetes\cluster" />
+      <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\staging\modules" />
       <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\dev\modules\k8s-cluster" />
       <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\dev\modules\kubernetes" />
       <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\dev\modules" />
-      <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\dev" />
-      <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\staging\modules\firewall" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\dev\modules\kubernetes" />
       <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\.terraform\dev" />
       <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos" />
       <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\.terraform" />
@@ -163,7 +178,7 @@
       <workItem from="1745656212838" duration="964000" />
       <workItem from="1745718534411" duration="7000" />
       <workItem from="1745925220913" duration="991000" />
-      <workItem from="1745926499028" duration="553000" />
+      <workItem from="1745926499028" duration="844000" />
     </task>
     <servers />
   </component>

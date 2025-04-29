@@ -26,7 +26,7 @@ locals {
 #----------------------
 # Module Config for Sefire Development Environment using DOKS
 module "sgp1_cluster" {
-  source     = "./modules/k8s-cluster"
+  source     = "modules/kubernetes/cluster"
   name       = "sefire-sgp1-dev"
   region_code = "sgp1"
   resource_version = "1.32.2-do.0"
