@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="287ace61-00e1-4e2b-b72e-27aacdbf3036" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/cluster/outputs.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/dev/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/main.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/cluster/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/cluster/main.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/cluster/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/cluster/outputs.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/staging/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/staging/main.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/cluster/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/cluster/main.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/staging/modules/nodepool/main.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/staging/modules/nodepool/providers.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/staging/modules/nodepool/variables.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/staging/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/staging/outputs.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +53,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/LooWeeSing/Desktop/GIT/cosmos/terraform/dev/modules/kubernetes/cluster",
+    "last_opened_file_path": "C:/Users/LooWeeSing/Desktop/GIT/cosmos/lib/digitalocean",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -80,11 +70,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\lib\digitalocean" />
       <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\dev\modules\kubernetes\cluster" />
       <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\staging\modules\kubernetes\cluster" />
       <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\staging\modules" />
       <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\dev\modules\k8s-cluster" />
-      <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\dev\modules\kubernetes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\LooWeeSing\Desktop\GIT\cosmos\terraform\dev\modules\kubernetes" />
@@ -174,7 +164,7 @@
       <workItem from="1745656212838" duration="964000" />
       <workItem from="1745718534411" duration="7000" />
       <workItem from="1745925220913" duration="991000" />
-      <workItem from="1745926499028" duration="1674000" />
+      <workItem from="1745926499028" duration="1908000" />
     </task>
     <servers />
   </component>
