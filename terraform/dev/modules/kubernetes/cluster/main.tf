@@ -24,4 +24,4 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
       nodepool = var.name + "-core-np"
     }
   }
-}}
+}

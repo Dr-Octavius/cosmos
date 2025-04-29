@@ -18,63 +18,57 @@ locals {
 # Planned Resources
 # - resource blocks only
 #------------------------
-# Sefire Staging Environment using DOKS
-resource "digitalocean_kubernetes_cluster" "cluster" {
-  name    = "sefire-sgp1-staging"
-  region  = "sgp1"
-  version = "1.32.2-do.0"
-
-  # Default Node Pool
-  node_pool {
-    name       = "core-np"
-    size       = local.general_size
-    auto_scale = true
-    min_nodes  = 1
-    max_nodes  = 5
-    labels = {
-      nodepool = "core-np"
-    }
-  }
-}
 
 #----------------------
 # Referenced Configs
 # - module blocks only
 #----------------------
+# Sefire Staging Environment using DOKS
+module "sgp1_cluster" {
+  source           = "./modules/kubernetes/cluster"
+  name             = "sefire-sgp1-dev"
+  region_code      = "sgp1"
+  resource_version = "1.32.2-do.0"
+  size             = local.general_size
+  auto_scale       = true
+  min_nodes        = 1
+  max_nodes        = 5
+}
+
 # Module Config for dedicated Prometheus nodepool
 module "prometheus_np" {
-  source     = "./modules/nodepool"
-  cluster_id = digitalocean_kubernetes_cluster.cluster.id
+  source     = "./modules/kubernetes/nodepool"
+  cluster_id = module.sgp1_cluster.id
   name       = "prometheus-np"
   size       = local.medium_size
   auto_scale = true
   min_nodes  = 1
   max_nodes  = 3
-  depends_on = [digitalocean_kubernetes_cluster.cluster]
+  depends_on = [module.sgp1_cluster]
 }
 
 # Module Config for dedicated Jaeger nodepool
 module "jaeger_np" {
-  source     = "./modules/nodepool"
-  cluster_id = digitalocean_kubernetes_cluster.cluster.id
+  source     = "./modules/kubernetes/nodepool"
+  cluster_id = module.sgp1_cluster.id
   name       = "jaeger-np"
   size       = local.medium_size
   auto_scale = true
   min_nodes  = 1
   max_nodes  = 3
-  depends_on = [digitalocean_kubernetes_cluster.cluster]
+  depends_on = [module.sgp1_cluster]
 }
 
 # Module Config for dedicated Elasticsearch nodepool
 module "elasticsearch_np" {
-  source     = "./modules/nodepool"
-  cluster_id = digitalocean_kubernetes_cluster.cluster.id
+  source     = "./modules/kubernetes/nodepool"
+  cluster_id = module.sgp1_cluster.id
   name       = "elasticsearch-np"
   size       = local.general_size
   auto_scale = true
   min_nodes  = 1
   max_nodes  = 3
-  depends_on = [digitalocean_kubernetes_cluster.cluster]
+  depends_on = [module.sgp1_cluster]
 }
 
 # Module Config for Sefire Firewall
@@ -120,5 +114,5 @@ module "sefire_sgp1_dev_firewall" {
       destination_addresses = ["0.0.0.0/0"]
     }
   ]
-  depends_on = [digitalocean_kubernetes_cluster.cluster]
+  depends_on = [module.sgp1_cluster]
 }

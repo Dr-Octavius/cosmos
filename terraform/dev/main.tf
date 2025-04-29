@@ -26,12 +26,12 @@ locals {
 #----------------------
 # Module Config for Sefire Development Environment using DOKS
 module "sgp1_cluster" {
-  source     = "modules/kubernetes/cluster"
-  name       = "sefire-sgp1-dev"
-  region_code = "sgp1"
+  source           = "./modules/kubernetes/cluster"
+  name             = "sefire-sgp1-dev"
+  region_code      = "sgp1"
   resource_version = "1.32.2-do.0"
-  size       = local.general_size
-  auto_scale = true
-  min_nodes  = 1
-  max_nodes  = 5
+  size             = local.general_size
+  auto_scale       = true
+  min_nodes        = 1
+  max_nodes        = 5
 }
