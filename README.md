@@ -81,6 +81,7 @@ If you plan on using this repo to deploy your infrastructure, you can follow the
 - **Common Modules** for networking, security groups, or shared resources.
 - **CI/CD Integration** (e.g., GitHub Actions, GitLab CI) for automated testing and deployments.
 - To add Documentation on proper sanitation procedures for dev environment
+- To add Documentation on how to scale to different locations for dev environment
 
 ### License
 
