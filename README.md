@@ -80,6 +80,7 @@ If you plan on using this repo to deploy your infrastructure, you can follow the
 - **Additional Provider Support**: GCP, AWS, Azure, etc.
 - **Common Modules** for networking, security groups, or shared resources.
 - **CI/CD Integration** (e.g., GitHub Actions, GitLab CI) for automated testing and deployments.
+- To add Documentation on proper sanitation procedures for dev environment
 
 ### License
 
