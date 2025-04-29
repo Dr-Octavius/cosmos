@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="287ace61-00e1-4e2b-b72e-27aacdbf3036" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/cluster/outputs.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/cluster/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/cluster/providers.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/cluster/variables.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/nodepool/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/nodepool/providers.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/staging/modules/kubernetes/nodepool/variables.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/dev/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/main.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/k8s-cluster/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/cluster/main.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/k8s-cluster/providers.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/cluster/providers.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/k8s-cluster/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/cluster/variables.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/k8s-nodepool/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/nodepool/main.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/k8s-nodepool/providers.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/nodepool/providers.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/dev/modules/k8s-nodepool/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/modules/kubernetes/nodepool/variables.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terraform/dev/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/outputs.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/dev/providers.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/dev/providers.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/staging/providers.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/staging/providers.tf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +165,7 @@
       <workItem from="1745656212838" duration="964000" />
       <workItem from="1745718534411" duration="7000" />
       <workItem from="1745925220913" duration="991000" />
-      <workItem from="1745926499028" duration="844000" />
+      <workItem from="1745926499028" duration="1196000" />
     </task>
     <servers />
   </component>
