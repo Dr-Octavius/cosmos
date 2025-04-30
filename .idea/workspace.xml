@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="287ace61-00e1-4e2b-b72e-27aacdbf3036" name="Changes" comment="" />
+    <list default="true" id="287ace61-00e1-4e2b-b72e-27aacdbf3036" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/staging/main.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/staging/main.tf" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,7 +172,7 @@
       <workItem from="1745979309026" duration="8000" />
       <workItem from="1745979384049" duration="9000" />
       <workItem from="1745982016031" duration="60000" />
-      <workItem from="1745996936378" duration="2843000" />
+      <workItem from="1745996936378" duration="3304000" />
     </task>
     <servers />
   </component>
