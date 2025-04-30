@@ -3,7 +3,7 @@
 #--------------
 
 variable "name" {
-  description = "Nodepool Name"
+  description = "Cluster Name"
   type        = string
 }
 
