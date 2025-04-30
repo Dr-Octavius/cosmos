@@ -15,13 +15,13 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
 
   # Default Node Pool
   node_pool {
-    name       = "core"
+    name       = "core-np"
     size       = var.size
     auto_scale = var.auto_scale
     min_nodes  = var.min_nodes
     max_nodes  = var.max_nodes
     labels = {
-      nodepool = "core"
+      nodepool = "core-np"
     }
   }
 }

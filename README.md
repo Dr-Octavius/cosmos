@@ -89,11 +89,11 @@ If you plan on using this repo to deploy your infrastructure, you can follow the
 This repository is released under the [GNU General Purpose License V3](./LICENSE) (or whichever license you choose). See the `LICENSE` file for details.
 
 ## Created Resources
-| Resources    | Dev                   | Staging                                               | Prod |
-|--------------|-----------------------|-------------------------------------------------------|------|
-| k8s Cluster  | ```sefire-sgp1-dev``` | ```sefire-sgp1-staging```                             |      |
-| k8s Nodepool | ```core```            | ``` core```<br/>```prometheus-np```<br/>```jaeger-np```<br/>```elasticsearch-np``` |      |
-| k8s Firewall |                       | ```sefire-sgp1-dev-firewall```                        |      |
+| Resources    | Dev                   | Staging                                                                              | Prod |
+|--------------|-----------------------|--------------------------------------------------------------------------------------|------|
+| k8s Cluster  | ```sefire-sgp1-dev``` | ```sefire-sgp1-staging```                                                            |      |
+| k8s Nodepool | ```core-np```         | ```core-np```<br/>```prometheus-np```<br/>```jaeger-np```<br/>```elasticsearch-np``` |      |
+| k8s Firewall |                       | ```sefire-sgp1-dev-firewall```                                                       |      |
 
 ## Contact
 - **Maintainers**: [sefire-org](mailto:origin@sefire.org)
