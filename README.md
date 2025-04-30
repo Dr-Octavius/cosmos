@@ -82,6 +82,7 @@ If you plan on using this repo to deploy your infrastructure, you can follow the
 - **CI/CD Integration** (e.g., GitHub Actions, GitLab CI) for automated testing and deployments.
 - To add Documentation on proper sanitation procedures for dev environment (when the dev folder is used etc.)
 - To add Documentation on how to scale to different locations for dev environment (primarily through the terraform script, no creation of new workspace on HCP Terraform)
+- TO add Documentation on how dev is about creating the sanfbox, and individual teams will create the resources in their own repo devs. Resource Reqs are consolidated and placed in Staging in this repo
 
 ## License
 

@@ -26,7 +26,7 @@ locals {
 # Sefire Staging Environment using DOKS
 module "sgp1_cluster" {
   source           = "./modules/kubernetes/cluster"
-  name             = "sefire-sgp1-dev"
+  name             = "sefire-sgp1-staging"
   region_code      = "sgp1"
   resource_version = "1.32.2-do.0"
   size             = local.size_g_4_16
