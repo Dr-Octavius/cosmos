@@ -2,7 +2,7 @@
 ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
 [![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg?style=for-the-badge)](./LICENSE)
 
-### Meaning
+## Meaning
 1. ☁️**C**_loud_
 2. ⚙️**O**_rchestration_
 3. </>**S**_cripts_ & 
@@ -10,7 +10,7 @@
 5. 🌐**O**_pen_
 6. 🛠️**S**_ystems_
 
-### Purpose
+## Purpose
 
 **COSMOS** is a vendor-agnostic collection of infrastructure scripts for spinning up 
 Cloud resrouces (Kubernetes clusters, etc.) across different cloud providers. 
@@ -22,13 +22,13 @@ code reuse so as to mitigate transfer time between one cloud provider to another
 focus of Sefire has conventionally been on Kubernetes. However, non kubernetes scripts
 can also be contributed to live in this parent folder.
 
-### Overview
+## Overview
 
 - **Purpose**: Provide a **single home** for various infrastructure definitions, scripts, and modules.
 - **Philosophy**: Keep the scripts **modular**, **reusable**, and **cloud/provider agnostic**.
 - **Structure**: Each provider (e.g., DigitalOcean, Civo) has its own directory under `lib/`. Common utilities and shared code live at the top level.
 
-### Repository Structure
+## Repository Structure
 
 ```bash
 ├── .idea
@@ -49,7 +49,7 @@ can also be contributed to live in this parent folder.
    1. **`civo/`:** Contains `main.tf` to provision infrastructure on [Civo](https://www.civo.com/).
    2. **`digitalocean/`:** Contains `main.tf` to provision infrastructure on [DigitalOcean](https://www.digitalocean.com/).
 
-### Usage
+## Usage
 
 If you plan on using this repo to deploy your infrastructure, you can follow the below steps.
 
@@ -69,26 +69,33 @@ If you plan on using this repo to deploy your infrastructure, you can follow the
 
 4. Edit `variables.tf` or your relevant `.tfvars` files to fit your requirements (region, cluster size, naming conventions, etc.).
 
-### Contributing
+## Contributing
 
 1. **Fork** the repository and create a branch for your feature or bug fix.
 2. **Open a Pull Request** describing your changes and the motivation behind them.
 3. **Adhere to** any style or naming guidelines detailed in our [CONTRIBUTING.md](CONTRIBUTING.md)
 
-### Roadmap
+## Roadmap
 
 - **Additional Provider Support**: GCP, AWS, Azure, etc.
 - **Common Modules** for networking, security groups, or shared resources.
 - **CI/CD Integration** (e.g., GitHub Actions, GitLab CI) for automated testing and deployments.
-- To add Documentation on proper sanitation procedures for dev environment
-- To add Documentation on how to scale to different locations for dev environment
+- To add Documentation on proper sanitation procedures for dev environment (when the dev folder is used etc.)
+- To add Documentation on how to scale to different locations for dev environment (primarily through the terraform script, no creation of new workspace on HCP Terraform)
 
-### License
+## License
 
 This repository is released under the [GNU General Purpose License V3](./LICENSE) (or whichever license you choose). See the `LICENSE` file for details.
 
-### Contact
-- **Maintainers**: [sefire-octopi](mailto:origin@sefire.org)
+## Created Resources
+| Resources    | Dev                   | Staging                                               | Prod |
+|--------------|-----------------------|-------------------------------------------------------|------|
+| k8s Cluster  | ```sefire-sgp1-dev``` | ```sefire-sgp1-staging```                             |      |
+| k8s Nodepool | ```core```            | ``` core```<br/>```prometheus-np```<br/>```jaeger-np```<br/>```elasticsearch-np``` |      |
+| k8s Firewall |                       | ```sefire-sgp1-dev-firewall```                        |      |
+
+## Contact
+- **Maintainers**: [sefire-org](mailto:origin@sefire.org)
 - **Issues**: Please open an [issue](./issues) for questions, bugs, or feature requests.
 
 Thanks for using **cosmos**! We hope it streamlines your Kubernetes provisioning and multi-cloud infrastructure management.

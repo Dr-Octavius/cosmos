@@ -10,8 +10,8 @@
 # - locals blocks only
 #----------------------
 locals {
-  general_size = "g-4vcpu-16gb"
-  medium_size  = "s-4vcpu-8gb"
+  size_g_4_16 = "g-4vcpu-16gb"
+  size_4_8  = "s-4vcpu-8gb"
 }
 
 #------------------------
@@ -29,7 +29,7 @@ module "sgp1_cluster" {
   name             = "sefire-sgp1-dev"
   region_code      = "sgp1"
   resource_version = "1.32.2-do.0"
-  size             = local.general_size
+  size             = local.size_g_4_16
   auto_scale       = true
   min_nodes        = 1
   max_nodes        = 5
@@ -40,7 +40,7 @@ module "prometheus_np" {
   source     = "./modules/kubernetes/nodepool"
   cluster_id = module.sgp1_cluster.id
   name       = "prometheus-np"
-  size       = local.medium_size
+  size       = local.size_4_8
   auto_scale = true
   min_nodes  = 1
   max_nodes  = 3
@@ -52,7 +52,7 @@ module "jaeger_np" {
   source     = "./modules/kubernetes/nodepool"
   cluster_id = module.sgp1_cluster.id
   name       = "jaeger-np"
-  size       = local.medium_size
+  size       = local.size_4_8
   auto_scale = true
   min_nodes  = 1
   max_nodes  = 3
@@ -64,7 +64,7 @@ module "elasticsearch_np" {
   source     = "./modules/kubernetes/nodepool"
   cluster_id = module.sgp1_cluster.id
   name       = "elasticsearch-np"
-  size       = local.general_size
+  size       = local.size_g_4_16
   auto_scale = true
   min_nodes  = 1
   max_nodes  = 3
