@@ -84,6 +84,7 @@ If you plan on using this repo to deploy your infrastructure, you can follow the
 - To add Documentation on how to scale to different locations for dev environment (primarily through the terraform script, no creation of new workspace on HCP Terraform)
 - TO add Documentation on how dev is about creating the sanfbox, and individual teams will create the resources in their own repo devs. Resource Reqs are consolidated and placed in Staging in this repo
 - Main logic is: Dev Envvironment created on demand. Dev creates more resources on this dev environment. Repo team decides resources required & opens issue on cosmos so that nodepool can be added in staging
+- Terraform use is dependant on whether deployed resource has a lot of drift. If yes, do not use terraform to track state and use .yaml + GitOPs approach instead
 
 ## License
 
