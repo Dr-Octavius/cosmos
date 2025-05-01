@@ -32,5 +32,5 @@ module "sgp1_cluster" {
   size             = local.size_g_4_16
   auto_scale       = true
   min_nodes        = 1
-  max_nodes        = 5
+  max_nodes        = 2
 }
