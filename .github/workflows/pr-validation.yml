@@ -1,0 +1,45 @@
+name: Enforce PR Format
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  validate-pr-format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate PR title and body
+        uses: actions/github-script@v7.0.1
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const body = pr.body || "";
+            const title = pr.title;
+
+            // 1. PR Title
+            const titleRegex = /^\[([A-Z]+-\d+)\] \[(Fix|Feature|Chore|Docs|Refactor)\] .+/;
+            if (!titleRegex.test(title)) {
+              core.setFailed("❌ PR title must follow format: [JIRA-KEY] [Issue Type] Short Description");
+            }
+
+            // 2. Jira link
+            const jiraRegex = /https:\/\/yourdomain\.atlassian\.net\/browse\/[A-Z]+-\d+/;
+            if (!jiraRegex.test(body)) {
+              core.setFailed("❌ PR body must include a valid Jira link.");
+            }
+
+            // 3. Commits section
+            if (!body.includes("### Commits")) {
+              core.setFailed("❌ PR body must include a '### Commits' section.");
+            }
+
+            // 4. Description
+            if (!body.includes("### Description")) {
+              core.setFailed("❌ PR body must include a '### Description' section with What, Why, and How.");
+            }
+
+            // 5. Reviewers
+            if (!body.includes("### Reviewers")) {
+              core.setFailed("❌ PR body must include a '### Reviewers' section referencing CODEOWNERS.");
+            }

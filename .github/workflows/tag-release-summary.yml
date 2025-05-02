@@ -1,0 +1,90 @@
+name: Tag Release Summary
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  summarize-prs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get previous tag
+        id: previous_tag
+        run: |
+          LAST_TAG=$(git describe --tags --abbrev=0 HEAD^)
+          echo "last_tag=$LAST_TAG" >> $GITHUB_OUTPUT
+
+      - name: Generate PR summary
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const lastTag = '${{ steps.previous_tag.outputs.last_tag }}';
+            const { execSync } = require('child_process');
+
+            // Get merged commits between last tag and current tag
+            const raw = execSync(`git log ${lastTag}..HEAD --merges --pretty=format:"%H"`).toString().trim();
+            const mergeCommits = raw.split("\n").filter(Boolean);
+
+            if (mergeCommits.length === 0) {
+              core.notice("No PRs merged since last tag.");
+              return;
+            }
+
+            const prDetails = [];
+
+            for (const sha of mergeCommits) {
+              const commit = await github.rest.repos.getCommit({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: sha
+              });
+
+              const prMatch = commit.data.commit.message.match(/Merge pull request #(\d+)/);
+              if (!prMatch) continue;
+
+              const prNumber = parseInt(prMatch[1], 10);
+              const pr = await github.rest.pulls.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: prNumber
+              });
+
+              const commits = await github.rest.pulls.listCommits({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: prNumber
+              });
+
+              prDetails.push({
+                number: prNumber,
+                title: pr.data.title,
+                user: pr.data.user.login,
+                body: pr.data.body,
+                commitMessages: commits.data.map(c => `- ${c.commit.message.split("\n")[0]}`)
+              });
+            }
+
+            // Format the release summary
+            let summary = `# 🚀 Release ${{ github.ref_name }} Summary\n\n### ✅ Merged PRs since ${lastTag}:\n`;
+
+            for (const pr of prDetails) {
+              summary += `\n**#${pr.number} ${pr.title}** by @${pr.user}\n${pr.commitMessages.join("\n")}\n`;
+            }
+
+            console.log(summary);  // Optional: just for logs
+
+            // Output as a file (can be uploaded or committed)
+            require('fs').writeFileSync('release-summary.md', summary);
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          body_path: release-summary.md
