@@ -1,6 +1,6 @@
 ## 🧩 Jira Ticket
 
-[JIRA-KEY](https://yourdomain.atlassian.net/browse/ABC-123)
+[JIRA-KEY](https://sefire.atlassian.net/browse/ABC-123)
 
 ---
 
