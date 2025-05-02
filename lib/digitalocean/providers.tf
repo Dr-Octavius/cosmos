@@ -8,7 +8,7 @@ terraform {
   cloud {
     organization = "sefire"
     workspaces {
-      name = "cosmos-staging"
+      name = "cosmos-dev"
     }
   }
   required_providers {
