@@ -44,7 +44,8 @@ Notes:
 ---
 
 ## 👀 Reviewers
-
+<!-- Or specific usernames; refer to CODEOWNERS -->
+<!-- Based on Org Graph, Tag the teams that will be affected here -->
 @backend-team  
 @frontend-team  
-<!-- Or specific usernames; refer to CODEOWNERS -->
+
