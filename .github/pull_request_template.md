@@ -1,27 +1,45 @@
+> ❗ Note ❗ **_(Delete this tooltip once you've created the title)_**<br>
+><br>**Replace PR Title**<br> 
+><br>_[JIRA KEY][Issue Type] Put Description Here....._<br>
+
 ## 🧩 Jira Ticket
 
+<!-- IMPORTANT AS CONTEXT -->
 [JIRA-KEY](https://sefire.atlassian.net/browse/ABC-123)
 
 ---
 
-## 📜 Commits
+## 📌 Summary
 
-<!-- List the commits relevant to this PR -->
-- commit message 1 (author)
-- commit message 2 (author)
+**What:**
+<!-- 1 sentence on what is being changed? -->
+
+**Why:**
+<!-- 1 sentence on why this approach? -->
+
+**How:**
+<!-- 1 sentence on how this solves the issue -->
 
 ---
 
-## 🧠 Description
+## ✅ Notable Commits
+<!-- 1 sentence on how this solves the issue -->
+| Commit Type           | SHA Link                        | Note For Reviewer |
+|-----------------------|---------------------------------|-------------------|
+| ```feat```, ```chore```, ```doc```, ```fix``` | [Copy From Commit List Below]() | Some Notes        |
 
-**What:**  
-<!-- What is being changed? -->
+---
 
-**Why:**  
-<!-- Why is the change needed? -->
+### 🧪 Testing / Validation
 
-**How:**  
-<!-- How does this solve the problem? -->
+- [ ] Terraform Plan successful (`terraform plan`)
+- [ ] Applied in staging or sandbox
+- [ ] Manual verification done
+- [ ] CI checks passed
+- [ ] Rollback tested (if applicable)
+
+Notes:
+<!-- Add logs, screenshots, or links to plan/apply output if needed -->
 
 ---
 
@@ -29,4 +47,4 @@
 
 @backend-team  
 @frontend-team  
-<!-- Or specific usernames -->
+<!-- Or specific usernames; refer to CODEOWNERS -->

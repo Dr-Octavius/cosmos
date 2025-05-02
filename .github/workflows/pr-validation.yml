@@ -1,45 +1,33 @@
-name: Enforce PR Format
+name: PR Template Validation
 
 on:
   pull_request:
-    types: [opened, edited, synchronize]
+    types: [opened, edited, reopened]
 
 jobs:
-  validate-pr-format:
+  validate-pr-template:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Validate PR title and body
-        uses: actions/github-script@v7.0.1
+      - name: Validate PR Body for Required Fields
+        uses: actions/github-script@v7
         with:
           script: |
-            const pr = context.payload.pull_request;
-            const body = pr.body || "";
-            const title = pr.title;
+            const body = context.payload.pull_request.body || "";
 
-            // 1. PR Title
-            const titleRegex = /^\[([A-Z]+-\d+)\] \[(Fix|Feature|Chore|Docs|Refactor)\] .+/;
-            if (!titleRegex.test(title)) {
-              core.setFailed("❌ PR title must follow format: [JIRA-KEY] [Issue Type] Short Description");
-            }
+            const requiredSections = {
+              "Jira Ticket": /\[([A-Z]+-\d+)\]\(https:\/\/sefire\.atlassian\.net\/browse\/[A-Z]+-\d+\)/,
+              "Summary - What": /\*\*What:\*\*\s*\n(?!<!--)(?!\s*-->).+/,
+              "Summary - Why": /\*\*Why:\*\*\s*\n(?!<!--)(?!\s*-->).+/,
+              "Summary - How": /\*\*How:\*\*\s*\n(?!<!--)(?!\s*-->).+/,
+              "Notable Commits Table": /\| Commit Type\s+\| SHA Link\s+\| Note For Reviewer \|/,
+              "Checklist": /- \[x\] Terraform Plan successful/i
+            };
 
-            // 2. Jira link
-            const jiraRegex = /https:\/\/yourdomain\.atlassian\.net\/browse\/[A-Z]+-\d+/;
-            if (!jiraRegex.test(body)) {
-              core.setFailed("❌ PR body must include a valid Jira link.");
-            }
+            const failures = Object.entries(requiredSections).filter(([name, pattern]) => !pattern.test(body));
 
-            // 3. Commits section
-            if (!body.includes("### Commits")) {
-              core.setFailed("❌ PR body must include a '### Commits' section.");
-            }
-
-            // 4. Description
-            if (!body.includes("### Description")) {
-              core.setFailed("❌ PR body must include a '### Description' section with What, Why, and How.");
-            }
-
-            // 5. Reviewers
-            if (!body.includes("### Reviewers")) {
-              core.setFailed("❌ PR body must include a '### Reviewers' section referencing CODEOWNERS.");
+            if (failures.length > 0) {
+              const messages = failures.map(([name]) => `❌ Missing or incomplete section: **${name}**`);
+              core.setFailed(messages.join("\n"));
+            } else {
+              console.log("✅ All required PR sections are properly filled.");
             }
