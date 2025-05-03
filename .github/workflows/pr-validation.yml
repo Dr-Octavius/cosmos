@@ -1,8 +1,8 @@
-name: PR Template Validation
+name: Validate COSMOS PR
 
 on:
   pull_request:
-    types: [opened, edited, reopened]
+    types: [opened, edited, reopened, synchronize]
 
 jobs:
   validate-pr-template:
@@ -20,7 +20,7 @@ jobs:
               "Summary - Why": /\*\*Why:\*\*\s*\n(?!<!--)(?!\s*-->).+/,
               "Summary - How": /\*\*How:\*\*\s*\n(?!<!--)(?!\s*-->).+/,
               "Notable Commits Table": /\| Commit Type\s+\| SHA Link\s+\| Note For Reviewer \|/,
-              "Checklist": /- \[x\] Terraform Plan successful/i
+              "Pre-Merge Validation": /- \[x\] Terraform Plan successful/i
             };
 
             const failures = Object.entries(requiredSections).filter(([name, pattern]) => !pattern.test(body));
