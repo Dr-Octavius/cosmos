@@ -4,39 +4,30 @@
 ## 🧩 Jira Ticket
 
 <!-- IMPORTANT AS CONTEXT! Link to JIRA ticket will be checked by the reviewer -->
-[JIRA-KEY](https://sefire.atlassian.net/browse/ABC-123)
+[COSMOS-KEY](https://sefire.atlassian.net/browse/ABC-123)
 
 ---
 
 ## 📌 Summary
 
-**What:**
+##### **What**
 <!-- 1 sentence on what is being changed? -->
 
-**Why:**
+##### **Why**
 <!-- 1 sentence on why this approach? -->
 
-**How:**
+##### **How**
 <!-- 1 sentence on how this solves the issue -->
 
 ---
 
-## ✅ Pre-Merge Validation
+## 🚀 Post-Merge Validations
 
-- [ ] `terraform fmt` / `tflint` passes
-- [ ] Manual code review done
-- [ ] CI checks passed
-
-Notes:
-<!-- Add logs, screenshots, or links to plan/apply output if needed -->
-
-## 🚀 Post-Merge Validation
-
-- [ ] HCP Terraform Plan & Apply on COSMOS Infra
+- [ ] HCP Terraform Plan & Apply on COSMOS Infra Passed
 - [ ] Validation in Sandbox Cluster
 - [ ] Rollback tested (if applicable)
 
-Notes:
+##### Notes:
 <!-- Add logs, screenshots, or links to plan/apply output if needed -->
 
 ---

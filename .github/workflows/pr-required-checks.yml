@@ -1,0 +1,58 @@
+name: PR Validation
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  check-pr-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR Title Format
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.pull_request.title;
+            const regex = /^\[JIRA-[0-9]+\] [A-Z].+/;
+            if (!regex.test(title)) {
+              core.setFailed(`PR title "${title}" does not match the required format: [JIRA-123] Description`);
+            }
+      - name: Check PR Body Contains Required Sections
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.pull_request.body || "";
+            const requiredSections = [
+              '## \ud83c\udf0c Jira Ticket',
+              '## \ud83d\udccc Summary',
+              '## \u2705 Pre-Merge Validation',
+              '## \ud83d\ude80 Post-Merge Validation',
+              '## \ud83d\udcdc Notable Commits',
+              '## \ud83d\udc40 Reviewers'
+            ];
+            for (const section of requiredSections) {
+              const regex = new RegExp(section, 'i');
+              if (!regex.test(body)) {
+                core.setFailed(`Missing required section in PR body: ${section}`);
+              }
+            }
+      - name: Check for Jira Link in Body
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.pull_request.body || "";
+            const jiraRegex = /https:\/\/sefire\.atlassian\.net\/browse\/JIRA-[0-9]+/i;
+            if (!jiraRegex.test(body)) {
+              core.setFailed(`PR body does not contain a valid Jira link.`);
+            }
+      - name: Fail if Placeholder Note Line is Present
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.pull_request.body || "";
+            if (body.includes("❗ Note ❗")) {
+              core.setFailed("Please remove the placeholder note line: '❗ Note ❗'");
+            }

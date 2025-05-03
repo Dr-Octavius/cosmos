@@ -1,0 +1,72 @@
+name: PR Quality
+
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  quality-hints:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Evaluate Content Quality Warnings
+        id: check
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            const body = context.payload.pull_request.body || "";
+            const warnings = [];
+
+            const summaryMatch = body.match(/## \ud83d\udccc Summary([\s\S]*?)---/);
+            if (summaryMatch) {
+              const subSections = ['What', 'Why', 'How'];
+              for (const section of subSections) {
+                const match = summaryMatch[1].match(new RegExp(`\*\*${section}:\*\*\\n(.+?)\\n`, 'i'));
+                if (match && match[1].length > 300) {
+                  warnings.push(`- \`${section}\` section may be too long (>300 characters).`);
+                }
+              }
+            }
+
+            const notesChecks = [
+              { section: 'Pre-Merge Validation', label: 'Pre-Merge Notes' },
+              { section: 'Post-Merge Validation', label: 'Post-Merge Notes' }
+            ];
+            for (const { section, label } of notesChecks) {
+              const match = body.match(new RegExp(`## .*${section}[\s\S]*?Notes:[\s\n]*([^\n]*)`, 'i'));
+              if (match && match[1].trim().length === 0) {
+                warnings.push(`- \`${label}\` section is empty.`);
+              }
+            }
+
+            const reviewersMatch = body.match(/## .*Reviewers[\s\S]*?(@\w+)/g);
+            if (!reviewersMatch || reviewersMatch.length === 0) {
+              warnings.push(`- No reviewers tagged under \`## Reviewers\`.`);
+            }
+
+            const commitsMatch = body.match(/## .*Notable Commits[\s\S]*?\|.*\|.*\|.*\|\n(?!\|)/);
+            if (commitsMatch) {
+              warnings.push(`- Notable Commits table appears to be empty.`);
+            }
+
+            return warnings.join("\n");
+
+      - name: Post Warning Comment to PR
+        if: steps.check.outputs.result != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const warnings = `${{ steps.check.outputs.result }}`;
+            const prNumber = context.payload.pull_request.number;
+            const message = `### ⚠️ PR Quality Suggestions\n\nThe following issues were detected in your PR:\n\n${warnings}\n\nPlease consider updating your PR for clarity and maintainability.`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: message
+            });
